@@ -1,13 +1,15 @@
+/* CSS دلخواه فقط محدود */
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  color: rgb(0, 10, 2);
+  background-color: rgb(202, 249, 234);
+  font-family: sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.wrapper {
+  background-color: rgb(10, 183, 117);
+  min-height: 100vh;
+  padding: 1rem 1.5rem 0rem;
+  /* فاصله از Navbar ثابت */
 }

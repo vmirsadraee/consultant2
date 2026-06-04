@@ -1,0 +1,41 @@
+.navbar-logo{ 
+    margin-right:2rem;
+    font-size: 3rem;
+    color: blueviolet;
+}
+.footer {
+    min-height: 50px;       /* یا هر مقدار مناسب */
+    font-size: 14px;
+    font-family: 'Times New Roman', Times, serif;
+    
+    display: flex;
+    justify-content: center; /* افقی مرکز */
+    align-items: center;     /* عمودی مرکز */
+    text-align: center;      /* برای متن‌های چند خطی */
+    color: aqua;
+    background-color: blue;
+    height: 40 px;
+}
+.d_none {
+    display: inline;
+}
+
+/* مخفی کردن در حالت موبایل */
+@media (max-width: 768px) {
+    .d_none {
+        display: none;
+    }
+}
+
+.nav-link {
+  color: black; /* رنگ پیشفرض لینک‌ها */
+  text-decoration: none;
+}
+
+.nav-link.active-link {
+  color: rgb(253, 100, 100); /* لینک فعال آبی می‌شود */
+  font-weight:900; /* اختیاری */
+  font-size: larger;
+  
+
+}
