@@ -141,9 +141,9 @@ export default function Beforpage() {
 
   const clearGrid = () => {
     if (window.confirm("داده‌های جدول پاک شود؟")) {
-      localStorage.removeItem("monitoringRows_durring");
+      localStorage.removeItem("monitoringRows_befor");
       setRows([]);
-      fetch(`http://localhost:5000/${table_name}/monthly`)
+      fetch(`http://localhost:5000/${table_name}/befor`)
         .then((res) => res.json())
         .then((data) => {
           const mapped = (Array.isArray(data) ? data : []).map((r) => ({
