@@ -7,6 +7,7 @@ import {
   normalizeValue, normalizeNumber, faToEn, formatPriceInput,
   formatInteger, formatPrice
 } from "../utils/funct"
+import API from "./api";
 //======================================================================
 
 export default function Beforpage() {
@@ -41,11 +42,11 @@ export default function Beforpage() {
       setRows(JSON.parse(savedRows));
       setLoading(false);
     } else {
-      fetch(`http://localhost:5000/${table_name}/befor`)
-        .then((res) => res.json())
-        .then((data) => {
-          const mapped = (Array.isArray(data) ? data : []).map((r) => ({
-            ...r,
+      API.get(`/${table_name}/befor`)
+        .then((res) => {
+    const data = res.data;
+    const mapped = (Array.isArray(data) ? data : []).map((r) => ({
+      ...r,
             enableCalc: false,
             isManual: false,
           }));
@@ -139,25 +140,31 @@ export default function Beforpage() {
   };
 
 
-  const clearGrid = () => {
-    if (window.confirm("داده‌های جدول پاک شود؟")) {
-      localStorage.removeItem("monitoringRows_befor");
-      setRows([]);
-      fetch(`http://localhost:5000/${table_name}/befor`)
-        .then((res) => res.json())
-        .then((data) => {
-          const mapped = (Array.isArray(data) ? data : []).map((r) => ({
-            ...r,
-            enableCalc: false,
-            isManual: false,
-          }));
-          setRows(mapped);
-          setLoading(false);
-        })
-        .catch(() => setLoading(false));
-    }
-    // دستوری که برای لود دوباره صفحه لازمه
-  };
+  const clearGrid = async () => {
+  const confirmClear = window.confirm("داده‌های جدول پاک شود؟");
+  if (!confirmClear) return;
+
+  try {
+    localStorage.removeItem("monitoringRows_befor");
+    setRows([]);
+    setLoading(true);
+
+    const res = await API.get(`/${table_name}/befor`);
+    const data = res.data;
+
+    const mapped = (Array.isArray(data) ? data : []).map((r) => ({
+      ...r,
+      enableCalc: false,
+      isManual: false,
+    }));
+
+    setRows(mapped);
+  } catch (err) {
+    console.error("خطا در دریافت داده‌ها:", err);
+  } finally {
+    setLoading(false);
+  }
+};
 
   useEffect(() => {
     localStorage.setItem("Final_befor", totalCalculatedPrice.toString());

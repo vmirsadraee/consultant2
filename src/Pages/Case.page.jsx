@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import "./Page.css";
 //========================== import  ===================================
 import { normalizeValue, normalizeNumber, formatInteger, formatPrice, faToEn, formatPriceInput } from "../utils/funct"
+import API from "./api";
 //======================================================================
 
 export default function Casepage() {
@@ -70,11 +71,11 @@ export default function Casepage() {
       setRows(JSON.parse(saved));
       setLoading(false);
     } else {
-      fetch(`http://localhost:5000/${table_name}/special`)
-        .then((res) => res.json())
-        .then((data) => {
-          const mapped = (Array.isArray(data) ? data : []).map((r) => ({
-            ...r,
+      API.get(`/${table_name}/special`)
+        .then((res) => {
+    const data = res.data;
+    const mapped = (Array.isArray(data) ? data : []).map((r) => ({
+      ...r,
             // c: r.c ?? 0, 
 
             isManual: false,
@@ -193,11 +194,11 @@ export default function Casepage() {
     if (window.confirm("داده‌های جدول پاک شود؟")) {
       localStorage.removeItem("monitoringRows_case");
       setRows([]);
-      fetch(`http://localhost:5000/${table_name}/special`)
-        .then((res) => res.json())
-        .then((data) => {
-          const mapped = (Array.isArray(data) ? data : []).map((r) => ({
-            ...r,
+      API.get(`/${table_name}/special`)
+        .then((res) => {
+         const data = res.data;
+         const mapped = (Array.isArray(data) ? data : []).map((r) => ({
+      ...r,
             enableCalc: false,
             isManual: false,
           }));

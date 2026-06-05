@@ -7,6 +7,7 @@ import React, {
 import { DataGrid } from "@mui/x-data-grid";
 import { useNavigate } from "react-router-dom";
 import "./Page.css";
+import API from "./api";
 
 export default function Supportpage() {
   const [rows, setRows] = useState([]);
@@ -43,11 +44,11 @@ export default function Supportpage() {
       setRows(JSON.parse(saved));
       setLoading(false);
     } else {
-      fetch(`http://localhost:5000/${table_name}/support`)
-        .then((res) => res.json())
-        .then((data) => {
-          const mapped = (Array.isArray(data) ? data : []).map((r) => ({
-            ...r,
+      API.get(`/${table_name}/support`)
+        .then((res) => {
+    const data = res.data;
+    const mapped = (Array.isArray(data) ? data : []).map((r) => ({
+      ...r,
             // c: r.c ?? 0, 
 
             isManual: false,
@@ -159,7 +160,7 @@ export default function Supportpage() {
     if (!window.confirm("داده‌های جدول پاک شود؟")) return;
     localStorage.removeItem("monitoringRows_support");
     setLoading(true);
-    fetch(`http://localhost:5000/${table_name}/support`)
+    API.get(`/${table_name}/support`)
       .then((res) => res.json())
       .then((data) => {
         const mapped = (Array.isArray(data) ? data : []).map((r) => ({

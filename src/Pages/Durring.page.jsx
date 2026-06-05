@@ -6,7 +6,8 @@ import "./Page.css";
 //========================== import  ===================================
 import { normalizeValue, normalizeNumber, formatInteger, formatPrice }
   from "../utils/funct"
-//======================================================================
+import API from "./api";
+  //======================================================================
 
 
 export default function Durringpage() {
@@ -39,11 +40,11 @@ export default function Durringpage() {
       setRows(JSON.parse(savedRows1));
       setLoading(false);
     } else {
-      fetch(`http://localhost:5000/${table_name}/monthly`)
-        .then((res) => res.json())
-        .then((data) => {
-          const mapped = (Array.isArray(data) ? data : []).map((r) => ({
-            ...r,
+      API.get(`/${table_name}/monthly`)
+        .then((res) => {
+    const data = res.data;
+    const mapped = (Array.isArray(data) ? data : []).map((r) => ({
+      ...r,
             enableCalc: false,
             isManual: false,
           }));
@@ -155,11 +156,11 @@ export default function Durringpage() {
     if (window.confirm("داده‌های جدول پاک شود؟")) {
       localStorage.removeItem("monitoringRows_durring");
       setRows([]);
-      fetch(`http://localhost:5000/${table_name}/monthly`)
-        .then((res) => res.json())
-        .then((data) => {
-          const mapped = (Array.isArray(data) ? data : []).map((r) => ({
-            ...r,
+      API.get(`/${table_name}/monthly`)
+        .then((res) => {
+         const data = res.data;
+         const mapped = (Array.isArray(data) ? data : []).map((r) => ({
+          ...r,
             enableCalc: false,
             isManual: false,
           }));
