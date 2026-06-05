@@ -1,13 +1,11 @@
-{
-  "version": 2,
-  "rewrites": [
-    {
-      "source": "/api/(.*)",
-      "destination": "/api/index.py"
-    },
-    {
-      "source": "/(.*)",
-      "destination": "/"
-    }
-  ]
-}
+"routes": [
+  {
+    "src": "/api/(.*)",
+    "dest": "api/index.py"
+  },
+  {
+    "src": "/(.*)",
+    "dest": "/"
+  }
+]
+
