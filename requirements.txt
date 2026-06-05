@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+pandas
+SQLAlchemy
+python-dotenv
+python-docx
+lxml
