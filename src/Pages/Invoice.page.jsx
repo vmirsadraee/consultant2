@@ -1,6 +1,5 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { asBlob } from "html-docx-js-typescript";
 import { saveAs } from "file-saver";
 import * as XLSX from "xlsx";
 import "./Page.css";
@@ -73,67 +72,7 @@ export default function Invoicepage() {
     URL.revokeObjectURL(url);
   };
 
-  // Export Word
-
-  const exportWord = async () => {
-    const table = document.querySelector("table");
-    if (!table) {
-      alert("جدولی پیدا نشد!");
-      return;
-    }
-
-    const html = `
-<!DOCTYPE html>
-<html lang="fa" dir="rtl">
-<head>
-  <meta charset="UTF-8" />
-  <style>
-    body {
-      direction: rtl;
-      text-align: right;
-      font-family: Tahoma;
-      font-size: 13px;
-    }
-    h2 {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    table {
-      border-collapse: collapse;
-      width: 100%;
-      table-layout: fixed;
-    }
-    th, td {
-      border: 1px solid #000;
-      padding: 6px;
-    }
-    th {
-      background-color: #f2f2f2;
-      font-weight: bold;
-    }
-  </style>
-</head>
-<body>
-
-<h2>خلاصه مالی حق الزحمه مشاوران</h2>
-
-${table.outerHTML}
-
-</body>
-</html>
-`;
-
-    // ✅ این خط کلیدی است
-    const arrayBuffer = await asBlob(html);
-
-    const blob = new Blob([arrayBuffer], {
-      type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-    });
-
-    saveAs(blob, "گزارش_حق_الزحمه.docx");
-  };
-
-
+ 
   // Export Excel
   const exportExcel = () => {
     const table = document.querySelector("table");
@@ -228,7 +167,7 @@ ${table.outerHTML}
         <button className="btn btn-success" onClick={exportExcel}>
           گزارش با Excel
         </button>
-        <button className="btn btn-danger" onClick={exportWord}>
+        <button className="btn btn-danger" onClick={sendToBackend}>
           گزارش با Word
         </button>
         <button className="btn btn-primary" onClick={exportLocalStorage}>
@@ -238,9 +177,7 @@ ${table.outerHTML}
           صفحه اصلی
         </button>
       </div>
-      <button className="btn btn-warning" onClick={sendToBackend}>
-        ارسال به بک‌اند
-      </button>
+     
 
 
       <table
