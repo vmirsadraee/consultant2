@@ -71,7 +71,7 @@ const sections = [
   <div className="d-flex gap-2">
     <button
       className="btn btn-success"
-      onClick={() =>window.open(`${API}/download-excel`)
+      onClick={() =>window.open(`${API}/download-excel`)}
 
     >
       دانلود فایل
