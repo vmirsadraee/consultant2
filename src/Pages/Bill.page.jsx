@@ -1,8 +1,6 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Page.css";
-import API2 from "./api";
-
 
 const Billpage = () => {
 
