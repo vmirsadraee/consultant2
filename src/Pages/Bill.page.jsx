@@ -71,7 +71,7 @@ const sections = [
   <div className="d-flex gap-2">
     <button
       className="btn btn-success"
-      onClick={() =>onClick={() => navigate("/download-excel")}
+      onClick={() =>onClick={() => navigate("https://consultant2-b.vercel.app/download-excel")}
 
     >
       دانلود فایل
