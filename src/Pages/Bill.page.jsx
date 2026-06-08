@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Page.css";
-import API from "./api";
+import API2 from "./api";
 
 
 const Billpage = () => {
@@ -71,7 +71,7 @@ const sections = [
   <div className="d-flex gap-2">
     <button
       className="btn btn-success"
-      onClick={() =>window.open(`${API}/download-excel`)}
+      onClick={() =>window.open(`${API2}`)}
 
     >
       دانلود فایل
