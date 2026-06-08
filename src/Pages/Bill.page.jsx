@@ -71,7 +71,7 @@ const sections = [
   <div className="d-flex gap-2">
     <button
       className="btn btn-success"
-      onClick={() =>window.open(`${API2}`)}
+      onClick={() =>window.open("https://consultant2-b.vercel.app/download-excel")}
 
     >
       دانلود فایل
