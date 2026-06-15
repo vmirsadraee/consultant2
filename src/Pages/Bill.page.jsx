@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./Page.css";
 
 
+
 const Billpage = () => {
 
 const STORAGE_PREFIX = "billpage_field_"; // پیش‌وند منحصربه‌فرد برای این جدول
@@ -70,7 +71,7 @@ const sections = [
   <div className="d-flex gap-2">
     <button
       className="btn btn-success"
-      onClick={() => window.open("http://127.0.0.1:5000/download-excel")}
+      onClick={() =>   window.open("https://consultant2-b.vercel.app/download-excel")}
     >
       دانلود فایل
     </button>
