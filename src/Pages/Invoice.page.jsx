@@ -126,7 +126,7 @@ export default function Invoicepage() {
 
       //console.log(JSON.stringify(beforeExecutionTable, null, 2));
       const res = await fetch(
-        "http://127.0.0.1:8000/api/report/generate",
+        "https://consultant2-v2.vercel.app/api/report/generate",
         {
           method: "POST",
           headers: {
