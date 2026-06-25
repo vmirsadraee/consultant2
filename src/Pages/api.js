@@ -1,11 +1,15 @@
 import axios from "axios";
 
-export const BASE_URL = "https://consultant2-b.vercel.app/";
+export const API_URL = "https://consultant2-b.vercel.app";
 
-const api = axios.create({
-  baseURL: BASE_URL
+export const api = axios.create({
+  baseURL: API_URL
+});
+
+export const API_URL2 = "https://consultant2-b.vercel.app/download-excel";
+
+export const api2 = axios.create({
+  baseURL: API_URL2
 });
 
 export default api;
-
-//  http://localhost:5000  https://consultant2-peach.vercel.app/tablea1403/befor
