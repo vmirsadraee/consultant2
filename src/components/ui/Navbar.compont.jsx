@@ -26,7 +26,8 @@ const Navbarcomponent = () => {
         {/* منو */}
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto">
-
+            
+            <NavItem to="/Aboutuspage"    label="َAbout" />
             <NavItem to="/Invoicepage"    label="خلاصه مالی" />
             <NavItem to="/Supportpage"    label="پشتیبانی" />
             <NavItem to="/Calculatepage"  label="پرداخت‌ها" />

@@ -13,6 +13,7 @@ import Calculatepage from "./Pages/Calculate.page.jsx";
 import Sitepage from "./Pages/Site.page.jsx";
 import Supportpage from "./Pages/Support.page.jsx";
 import Invoicepage from "./Pages/Invoice.page.jsx";
+import Aboutuspage from "./Pages/Aboutus.page.jsx";
 
 import './index.css';
 import './App.css';
@@ -38,7 +39,7 @@ function App() {
           <Route path="/Calculatepage" element={<Calculatepage />} />
           <Route path="/Supportpage" element={<Supportpage />} />
           <Route path="/Invoicepage" element={<Invoicepage />} />
-
+          <Route path="/Aboutuspage" element={<Aboutuspage />} />
 
         </Routes>
       </div>
