@@ -1,45 +1,41 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
+import LanguageSelector from "../LanguageSelector"; // اگر فایل جای دیگری است، مسیر را اصلاح کن
 import { NavLink } from "react-router-dom";
-import { FaCoins } from "react-icons/fa";
 import "./Navbar.css";
 
 const Navbarcomponent = () => {
+  const { t } = useTranslation();
+
   return (
     <nav className="navbar navbar-expand-lg custom-navbar">
       <div className="container-fluid">
+        <LanguageSelector />
 
-        {/* لوگو */}
-        <div className="navbar-brand d-flex align-items-center gap-2">
-          <FaCoins className="navbar-logo" />
-        </div>
-
-        {/* موبایل */}
         <button
           className="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarNav"
         >
-         <span className="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon"></span>
         </button>
 
-        {/* منو */}
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto">
-            
-            <NavItem to="/Aboutuspage"    label="َAbout" />
-            <NavItem to="/Invoicepage"    label="خلاصه مالی" />
-            <NavItem to="/Supportpage"    label="پشتیبانی" />
-            <NavItem to="/Calculatepage"  label="پرداخت‌ها" />
-            <NavItem to="/Billpage"       label="صورت وضعیت" />
-            <NavItem to="/Afterpage"      label="بعد از اجرا" />
-            <NavItem to="/Sitepage"       label="خدمات کارگاهی" />
-            <NavItem to="/Casepage"       label="نظارت موردی" />
-            <NavItem to="/Durringpage"    label="حین اجرا" />
-            <NavItem to="/Beforpage"      label="قبل از اجرا" />
-            <NavItem to="/Information"    label="اطلاعات پایه" />
-            <NavItem to="/"               label="خانه" />
-
+            <NavItem to="/" label={t("home")} />
+            <NavItem to="/Information" label={t("basicInfo")} />
+            <NavItem to="/Beforpage" label={t("beforeExecution")} />
+            <NavItem to="/Durringpage" label={t("duringExecution")} />
+            <NavItem to="/Casepage" label={t("expertReview")} /> 
+            <NavItem to="/Sitepage" label={t("services")} />
+            <NavItem to="/Afterpage" label={t("afterExecution")} />
+            <NavItem to="/Billpage" label={t("invoiceStatus")} />
+            <NavItem to="/Calculatepage" label={t("payments")} />
+            <NavItem to="/Supportpage" label={t("support")} />
+            <NavItem to="/Invoicepage" label={t("financialSummary")} />
+            <NavItem to="/Aboutuspage" label={t("about")} />
+                    
           </ul>
         </div>
       </div>
@@ -59,6 +55,5 @@ const NavItem = ({ to, label }) => (
     </NavLink>
   </li>
 );
-
 
 export default Navbarcomponent;
