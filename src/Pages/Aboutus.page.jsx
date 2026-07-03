@@ -4,15 +4,23 @@ import aboutImg from "../assets/images/about.png";
 const Aboutuspage = () => {
   const downloadPersianPDF = () => {
     const link = document.createElement("a");
-    link.href = "./persian-guide.pdf";
+    link.href = "/persian-guide.pdf";
     link.download = "persian-guide.pdf";
     link.click();
   };
 
   const downloadEnglishPDF = () => {
     const link = document.createElement("a");
-    link.href = "./english-guide.pdf";
+    link.href = "/english-guide.pdf";
     link.download = "english-guide.pdf";
+    link.click();
+  };
+
+   // متد جدید برای دانلود فایل نمونه پروژه JSON
+  const downloadSampleJSON = () => {
+    const link = document.createElement("a");
+    link.href = "/sample-project.json";
+    link.download = "sample-project.json";
     link.click();
   };
 
@@ -58,6 +66,7 @@ const Aboutuspage = () => {
             <button className="btn btn-primary" onClick={downloadPersianPDF}>
               دانلود دستورالعمل (PDF)
             </button>
+           
           </div>
 
           <div
@@ -78,7 +87,19 @@ const Aboutuspage = () => {
             <button className="btn btn-success" onClick={downloadEnglishPDF}>
               Download Instruction (PDF)
             </button>
+             {/* کلید مورد نظر شما با کپشن Download sample */}
+            
           </div>
+          <div
+            className="p-3"
+            dir="ltr"
+            style={{ textAlign: "left", color: "#1f1f1f" }}
+          >
+             <button className="btn btn-dark " dir="ltr" onClick={downloadSampleJSON}>
+                Download sample
+             </button>
+          </div>
+          
         </div>
       </div>
     </div>
