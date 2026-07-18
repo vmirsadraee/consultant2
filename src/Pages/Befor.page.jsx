@@ -358,7 +358,7 @@ export default function Beforpage() {
 
       <div className="mb-3 d-flex gap-2">
         <button
-          className="btn btn-success"
+          className="btn btn-outline-light"
           onClick={enableAllValidCalculations}
         >
           انتخاب همه

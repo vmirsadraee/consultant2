@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Page.css";
+import {formatPriceInput } from "../utils/funct"
+
 
 const STORAGE_PREFIX = "billpage_field_";
 
@@ -44,37 +46,37 @@ const Billpage = () => {
       {/* دکمه‌ها و بخش‌های دیگر */}
       <div className="mb-3 d-flex justify-content-between align-items-center">
         <div className="d-flex gap-2">
-          <button className="btn btn-success">دانلود فایل</button>
+          <button className="btn btn-outline-light">دانلود فایل</button>
           <button className="btn btn-secondary" onClick={() => navigate("/Calculatepage")}>
             مرحله بعد
           </button>
         </div>
       </div>
 
-      <table className="table table-bordered table-striped table-info text-center">
-        <thead className="table-light">
-          <tr>
-            <th style={{ width: "6%" }}>ردیف</th>
-            <th style={{ width: "30%" }}>شرح</th>
-            <th style={{ width: "64%" }}>اطلاعات</th>
+      <table className="table-custom ">
+        <thead  >
+          <tr >
+            <th className="col-id">ردیف</th>
+            <th className="col-label">شرح</th>
+            <th className="col-value">مبلغ (ریال) </th>
           </tr>
         </thead>
         <tbody>
           {sections.map((section, idx) => (
             <React.Fragment key={idx}>
-              <tr className="table-primary">
-                <td colSpan={3} className="fw-bold">{section.title}</td>
+              <tr >
+                <td colSpan={3} className="section-title" >{section.title}</td>
               </tr>
               {section.fields_bill.map((field) => (
-                <tr key={field.id}>
-                  <td>{field.id}</td>
-                  <td className="text-end">{field.label}</td>
+                <tr key={field.title}>
+                  <td style={{textAlign: "center", verticalAlign: "middle" }}>{field.id}</td>
+                  <td >{field.label}</td>
                   <td>
                     <input
                       type="text"
-                      className="form-control"
+                      className="Title1"
                       value={formData[field.id] || ""}
-                      onChange={(e) => handleChange(field.id, e.target.value)}
+                      onChange={(e) => handleChange(field.id,formatPriceInput(e.target.value))}
                     />
                   </td>
                 </tr>

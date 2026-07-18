@@ -391,7 +391,7 @@ export default function Casepage() {
         <div className="mb-3 d-flex gap-2">
 
           <button
-            className="btn btn-info" onClick={() => {
+            className="btn btn-outline-light" onClick={() => {
               if (!selectedRowId) {
                 alert("یک ردیف برای ویرایش انتخاب کنید");
                 return;
@@ -404,10 +404,10 @@ export default function Casepage() {
             ویرایش قیمت
           </button>
 
-          <button className="btn btn-primary" onClick={() => setShowModal(true)}>
+          <button className="btn btn-outline-light" onClick={() => setShowModal(true)}>
             افزودن ردیف جدید
           </button>
-          <button className="btn btn-warning" onClick={removeManualRows}>
+          <button className="btn btn-outline-light" onClick={removeManualRows}>
             حذف ردیف جدید
           </button>
           <button className="btn btn-outline-light" onClick={clearGrid}>

@@ -3,22 +3,19 @@ import { DataGrid } from "@mui/x-data-grid";
 import { useNavigate } from "react-router-dom";
 import "./Page.css";
 
-//import { HeaderWrapper } from "docx";
-//import { VscWordWrap } from "react-icons/vsc";
-
-export default function Beforpage() {
+export default function Sitepage() {
   const [rows, setRows] = useState([]);
   const [loading, setLoading] = useState(true);
   const [editPriceRow, setEditPriceRow] = useState(null);
   const [priceInput, setPriceInput] = useState("");
   const [showModal, setShowModal] = useState(false);
+  const [selectedRowId, setSelectedRowId] = useState(null);
   const [manualForm, setManualForm] = useState({
     serial: "",
     subject: "",
-    exprience: "",
     jopclass: "",
-    WorkHistory: "",
     rank: "",
+    WorkHistory: "",
     unitprice: "",
     place_eff: "",
   });
@@ -110,10 +107,9 @@ export default function Beforpage() {
       ID: `manual-${Date.now()}`,
       serial: manualForm.serial,
       subject: manualForm.subject,
-      exprience: manualForm.exprience,
       jopclass: manualForm.jopclass,
-      WorkHistory: manualForm.WorkHistory,
       rank: manualForm.rank,
+      WorkHistory: manualForm.WorkHistory,
       unitprice: manualForm.unitprice,
       place_eff: manualForm.place_eff,
       calculate: 1,
@@ -124,35 +120,30 @@ export default function Beforpage() {
     setManualForm({
       serial: "",
       subject: "",
-      exprience: "",
       jopclass: "",
-      WorkHistory: "",
       rank: "",
+      WorkHistory: "",
       unitprice: "",
       place_eff: ""
     });
   };
 
-  const removeManualRows = () => {
-    const confirmDelete = window.confirm("آیا می‌خواهید این ردیف را حذف نمائید؟");
-    if (!confirmDelete) return;
-    setRows((prev) => prev.filter((r) => !r.isManual));
-  };
+  const removeSelectedRow = () => {
+  if (!selectedRowId) {
+    alert("لطفاً ابتدا یک ردیف را از جدول انتخاب کنید.");
+    return;
+  }
+  const confirmDelete = window.confirm("آیا می‌خواهید این ردیف را حذف نمائید؟");
+  if (!confirmDelete) return;
+  
+  setRows((prev) => prev.filter((r) => r.ID !== selectedRowId));
+  setSelectedRowId(null); // ریست کردن انتخاب
+};
+
 
   const goTonext = () => {
     navigate("/Afterpage");
   };
-
-  const fields = [
-    { key: "serial", label: "شماره ردیف" },
-    { key: "subject", label: "نام و نام خانوادگی" },
-    { key: "exprience", label: "تخصص" },
-    { key: "jopclass", label: "طبقه شغلی" },
-    { key: "WorkHistory", label: "سابقه کار" },
-    { key: "rank", label: "رتبه شغلی" },
-    { key: "unitprice", label: "بهای پایه نظارت (ریال)" },
-    { key: "place_eff", label: "ضریب منطقه‌ای" },
-  ];
 
 
   const totalCalculatedPrice = rows.reduce((sum, r) => {
@@ -196,8 +187,8 @@ export default function Beforpage() {
   const columns = [
     {
       field: "serial",
-      headerName: "شماره ردیف",
-      flex: 0.12,
+      headerName: " ردیف",
+      flex: 0.05,
       headerClassName: "header1",
       headerAlign: "center",
       align: "center",
@@ -216,37 +207,30 @@ export default function Beforpage() {
         <div style={{ direction: "rtl", whiteSpace: "normal" }}>{p.value}</div>
       ),
     },
-    {
-      field: "exprience",
-      headerName: "تخصص ",
-      flex: 0.07,
-      headerClassName: "header2",
-      headerAlign: "center",
-      align: "right",
-      cellClassName: "row-normal",
-    },
+
     {
       field: "jopclass",
-      headerName: "طبقه شغلی",
+      headerName: " شغل",
       flex: 0.07,
-      headerClassName: "header2",
+      headerClassName: "header1",
       headerAlign: "center",
       align: "center",
       cellClassName: "row-normal",
     },
+    
     {
-      field: "WorkHistory",
-      headerName: "سایقه کار ",
+      field: "rank",
+      headerName: "رتبه شغلی",
       flex: 0.07,
-      headerClassName: "header2",
+      headerClassName: "header1",
       headerAlign: "center",
       align: "center",
       cellClassName: "row-normal",
     },
 
     {
-      field: "rank",
-      headerName: "رتبه شغلی",
+      field: "WorkHistory",
+      headerName: "سایقه کار ",
       flex: 0.07,
       headerClassName: "header1",
       headerAlign: "center",
@@ -257,7 +241,7 @@ export default function Beforpage() {
       field: "unitprice",
       headerName: "بهای پایه نظارت (ریال)",
       flex: 0.12,
-      headerClassName: "header2",
+      headerClassName: "header1",
       headerAlign: "center",
       align: "center",
       cellClassName: "row-normal",
@@ -269,7 +253,7 @@ export default function Beforpage() {
       field: "normaloperation",
       headerName: " ساعت کارعادی",
       flex: 0.08,
-      headerClassName: "header2",
+      headerClassName: "header1",
       type: "number",
       editable: true,
       align: "center",
@@ -279,9 +263,9 @@ export default function Beforpage() {
 
     {
       field: "nightoperation",
-      headerName: "ساعت کارکرد شبانه",
+      headerName: "ساعت کارشبانه",
       flex: 0.08,
-      headerClassName: "header2",
+      headerClassName: "header1",
       type: "number",
       editable: true,
       align: "center",
@@ -292,9 +276,9 @@ export default function Beforpage() {
 
     {
       field: "place_eff",
-      headerName: "ضریب منطقه ای",
+      headerName: "ضریب منطقه ",
       flex: 0.08,
-      headerClassName: "header2",
+      headerClassName: "header1",
       type: "number",
       align: "center",
       headerAlign: "center",
@@ -306,7 +290,7 @@ export default function Beforpage() {
       field: "totalprice",
       headerName: "جمع کل (ریال)",
       flex: 0.15,
-      headerClassName: "header2",
+      headerClassName: "header1",
       type: "number",
       align: "center",
       headerAlign: "center",
@@ -331,11 +315,11 @@ export default function Beforpage() {
       <div>
         <div className="mb-3 d-flex gap-2">
 
-          <button className="btn btn-primary" onClick={() => setShowModal(true)}>
-            افزودن ردیف جدید
+          <button className="btn btn-outline-light" onClick={() => setShowModal(true)}>
+            افزودن ردیف 
           </button>
-          <button className="btn btn-warning" onClick={removeManualRows}>
-            حذف ردیف جدید
+          <button className="btn btn-outline-light" onClick={removeSelectedRow}>
+            حذف ردیف 
           </button>
           <button className="btn btn-outline-light" onClick={clearGrid}>
             صفحه جدید
@@ -362,8 +346,9 @@ export default function Beforpage() {
           // چک امن
           if (!params?.row) return 50; // ارتفاع پیش‌فرض
           return 'auto'; // تیتر ثابت، بقیه داینامیک
+          
         }}
-
+        onRowClick={(params) => setSelectedRowId(params.id)}
         getRowClassName={(p) => (p.row.isManual ? "manual-row" : "")}
         processRowUpdate={(updatedRow, oldRow) => {
           const newRows = rows.map((r) =>
@@ -385,35 +370,89 @@ export default function Beforpage() {
 
 
 
-      {/* Modal افزودن ردیف دستی */}
-      {showModal && (
-        <div className="modal-backdrop">
-          <div className="modal-box">
-            <h5>افزودن ردیف دستی</h5>
-            {fields.map(({ key, label }) => (
-              <input
-                key={key}
-                placeholder={label}
-                value={manualForm[key]}
-                onChange={(e) =>
-                  setManualForm({ ...manualForm, [key]: e.target.value })
-                }
-              />
-            ))}
-            <div className="mt-2 d-flex gap-2">
-              <button className="btn btn-success" onClick={addManualRow}>
-                ثبت
-              </button>
-              <button
-                className="btn btn-secondary"
-                onClick={() => setShowModal(false)}
-              >
-                انصراف
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
+{/* Modal افزودن ردیف دستی */}
+{showModal && (
+  <div className="modal-backdrop">
+    <div className="modal-box">
+      <h5>افزودن ردیف دستی</h5>
+      
+      {/* فیلدهای متنی ساده */}
+      <input
+        placeholder="شماره ردیف"
+        value={manualForm.serial}
+        onChange={(e) => setManualForm({ ...manualForm, serial: e.target.value })}
+      />
+      <input
+        placeholder="نام و نام خانوادگی"
+        value={manualForm.subject}
+        onChange={(e) => setManualForm({ ...manualForm, subject: e.target.value })}
+      />
+
+      {/* انتخاب طبقه شغلی (jopclass) */}
+      <select
+        className="form-select mb-2"
+        value={manualForm.jopclass}
+        onChange={(e) => setManualForm({ ...manualForm, jopclass: e.target.value })}
+      >
+        <option value="">انتخاب طبقه شغلی...</option>
+        <option value="سرناظر">سرناظر</option>
+        <option value="ناظر">ناظر</option>
+        <option value="کمک ناظر">کمک ناظر</option>
+      </select>
+
+      {/* انتخاب رتبه شغلی (rank) */}
+      <select
+        className="form-select mb-2"
+        value={manualForm.rank}
+        onChange={(e) => setManualForm({ ...manualForm, rank: e.target.value })}
+      >
+        <option value="">انتخاب رتبه شغلی...</option>
+        <option value="1">لیسانس و بالاتر</option>
+        <option value="2">زیر لیسانس</option>
+      </select>
+
+      {/* انتخاب سابقه کار (WorkHistory) بر اساس جدول پیوست */}
+      <select
+        className="form-select mb-2"
+        value={manualForm.WorkHistory}
+        onChange={(e) => setManualForm({ ...manualForm, WorkHistory: e.target.value })}
+      >
+        <option value="">انتخاب رتبه سابقه کار...</option>
+        <option value="+20 سال">رتبه ۱ (سابقه ۲۰+ سال)</option>
+        <option value="13-20 سال">رتبه ۲ (سابقه ۱۳-۲۰ سال)</option>
+        <option value="8-13 سال">رتبه ۳ (سابقه ۸-۱۳ سال)</option>
+        <option value="3-8 سال">رتبه ۴ (سابقه ۳-۸ سال)</option>
+        <option value="0-3 سال">رتبه ۵ (سابقه ۰-۳ سال)</option>
+      </select>
+
+      <input
+        placeholder="بهای پایه نظارت (ریال)"
+        value={manualForm.unitprice}
+        onChange={(e) => setManualForm({ ...manualForm, unitprice: e.target.value })}
+      />
+      <input
+        placeholder="ضریب منطقه‌ای"
+        value={manualForm.place_eff}
+        onChange={(e) => setManualForm({ ...manualForm, place_eff: e.target.value })}
+      />
+
+      <div className="mt-2 d-flex gap-2">
+        <button className="btn btn-success" onClick={addManualRow}>
+          ثبت
+        </button>
+        <button
+          className="btn btn-secondary"
+          onClick={() => setShowModal(false)}
+        >
+          انصراف
+        </button>
+      </div>
+    </div>
+  </div>
+)}
+
+
+
 
       {/* Modal ویرایش قیمت */}
       {editPriceRow && (

@@ -1,11 +1,11 @@
 import React from 'react';
-import './Navbar.css';
+import './Footer.css';
 
-const Footercompont =() => {
+const Footercompont = () => {
     return (
-        <footer className='footer'>
-           <span>This application is currently being tested. </span> 
-           
+        <footer className="footer">
+            <span> This footer is a test in react program .  </span>
+            <span className="d_none">  this not mobile </span>
         </footer>
     );
 };

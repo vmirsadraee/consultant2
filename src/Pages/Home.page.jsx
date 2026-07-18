@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "./Page.css";
 
 const Homepage = () => {
   const [table_Name, setTableName] = useState("");
@@ -86,7 +87,7 @@ const Homepage = () => {
     <div className="container my-4">
       {/* Header */}
       <div className="row mb-4">
-        <div className="col-12 bg-info p-3 rounded text-center">
+        <div className="title-kader p-3 rounded text-center">
           <h5 className="Titlem mb-0">
             به سایت محاسبه حق الزحمه مشاوران خوش آمدید
           </h5>

@@ -93,36 +93,28 @@ useEffect(() => {
   return (  
 
     <div style={{ width: "100%", padding: 5, direction: "rtl" }}>
-    <div className="mb-1 d-flex gap-0">
+
+      
+      <div className="mb-2">
         <button className="btn btn-secondary" onClick={() => navigate("/Supportpage")}>   
         مرحله بعد
         </button>
-       
-       
-    </div>
+        <h4 className="Titlem " style={{ textAlign: "center"}}>
+                خلاصه محاسبات و اعمال عملکرد پیمانکار در نظارت ماهانه و کارگاهی </h4>
+      </div>
 
-    <table
+    <table className="table-custom"
       style={{
         width: "100%",
+        height: "50%",
         borderCollapse: "collapse",
         direction: "rtl",
-        fontFamily: "Tahoma",
         tableLayout: "fixed",
-        fontSize: "13px"
+        fontSize: "13px",
+        textAlign: "center",
+        verticalAlign:"center"
       }}
     >
-     {/* ====== HEADER ====== */}
-      {/*<thead>
-        <tr>
-          <th className="th">1</th>
-          <th className="th">2</th>
-          <th className="th">3</th>
-          <th className="th">4</th>
-          <th className="th">5</th>
-          <th className="th">6</th>
-          <th className="th">7</th>
-        </tr>
-      </thead>*/}
       <thead>
         <tr>
           <td className="Title">مبلغ پيمان ( C ) با در نظر گرفتن مفاد بند 1-2-7-5 بخشنامه(ريال)</td>

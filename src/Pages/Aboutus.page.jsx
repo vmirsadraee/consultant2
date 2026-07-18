@@ -1,5 +1,5 @@
 import React from 'react';
-import aboutImg from "../assets/images/about.png";
+import rezome from "../assets/images/rezome.png";
 
 const Aboutuspage = () => {
   const downloadPersianPDF = () => {
@@ -27,7 +27,7 @@ const Aboutuspage = () => {
   return (
     <div
       className="container-fluid px-4 py-3"
-      style={{ backgroundColor: "#17c37b", minHeight: "100vh" }}
+      
     >
       <div className="row mb-4">
         <div className="col-12">
@@ -40,7 +40,7 @@ const Aboutuspage = () => {
       <div className="row align-items-start">
         <div className="col-md-4 text-start mb-4">
           <img
-            src={aboutImg}
+            src={rezome}
             alt="about"
             className="img-fluid"
             style={{ maxWidth: "320px" }}
@@ -51,7 +51,7 @@ const Aboutuspage = () => {
           <div
             className="p-3 mb-4"
             dir="rtl"
-            style={{ textAlign: "right", color: "#1f1f1f" }}
+            style={{ textAlign: "right" , fontSize:"18px" }}
           >
             <p className="mb-3">
               این برنامه با React و با پشتیبانی FastAPI تنظیم شده است.
@@ -72,7 +72,7 @@ const Aboutuspage = () => {
           <div
             className="p-3"
             dir="ltr"
-            style={{ textAlign: "left", color: "#1f1f1f" }}
+            style={{ textAlign: "left" ,fontSize: "22px" }}
           >
             <p className="mb-3">
               This application is built with React and supported by FastAPI.

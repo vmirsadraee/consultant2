@@ -1,41 +1,49 @@
-.navbar-logo{ 
-    margin-right:2rem;
-    font-size: 1rem;
-    color: blueviolet;
-}
-.footer {
-    min-height: 50px;       /* یا هر مقدار مناسب */
-    font-size: 14px;
-    font-family: 'Vazirmatn' ,Times New Roman, Times, serif;
-    
-    display: flex;
-    justify-content: center; /* افقی مرکز */
-    align-items: center;     /* عمودی مرکز */
-    text-align: center;      /* برای متن‌های چند خطی */
-    color: aqua;
-    background-color: blue;
-    height: 40 px;
-}
-.d_none {
-    display: inline;
+.custom-navbar {
+    position: fixed !important;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: min-content;
+    width: 100%;
+    z-index: 9999;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(139, 135, 135, 0.08);
+    font-family: "Vazirmatn", "IRANSans", sans-serif;
 }
 
-/* مخفی کردن در حالت موبایل */
-@media (max-width: 768px) {
-    .d_none {
-        display: none;
-    }
+
+/* برای اینکه محتوای صفحه زیر نوبار نرود */
+body {
+    padding-top: 70px;
 }
 
+/* لوگو */
+.navbar-logo {
+    font-size: 28px;
+    color: #d4a017;
+}
+
+/* لینک‌های منو */
 .nav-link {
-  color: black; /* رنگ پیشفرض لینک‌ها */
-  text-decoration: none;
+    background: transparent !important;
+    color: #333 !important;
+    border: none;
+    text-decoration: none;
+    padding: 8px 12px;
+    transition: color 0.3s ease;
 }
 
-.nav-link.active-link {
-  color: rgb(253, 100, 100); /* لینک فعال آبی می‌شود */
-  font-weight:900; /* اختیاری */
-  font-size: larger;
-  
+/* هاور */
+.nav-link:hover {
+    background: transparent !important;
+    color: #0d6efd !important;
+}
 
+/* لینک فعال */
+.active-link {
+    background: transparent !important;
+    color: #0d6efd !important;
+    font-weight: bold;
+    border-bottom: 2px solid #0d6efd;
+    border-radius: 0;
 }

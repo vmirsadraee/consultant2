@@ -1,44 +1,70 @@
-/* src/App.css یا src/Pages/FaqPage.css */
+/*   ==============MuiDataGrid =================  */
 .header {
-  font-family: Segoe UI, 'Tahoma', Geneva, Verdana, sans-serif;
+  font-family:  "Vazirmatn", "IRANSans", sans-serif , Tahoma !important;
   font-weight: bold;
-  font-size: medium;
+  font-size:larger !important;
   direction: rtl;
   color-scheme: initial;
   color: rgb(240, 239, 235);
-  background-color: #07b3ec !important;
+  background-color: #024257 !important;
 }
 
-.Titlem {
-  font-family: 'Times New Roman', Times, serif;
-  font-size: larger;
-  direction: rtl;
-  color: rgb(21, 0, 15);
-}
 
 .header1 {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Vazirmatn","IRANSans",Tahoma,sans-serif !important;
   font-weight: bolder;
-  font-size: small;
+  font-size:medium;
   word-wrap: break-word;
   height: auto;
   direction: rtl;
   color-scheme: initial;
   color: rgb(240, 239, 235);
-  background-color: #c61035 !important;
+  background-color: #024257 !important;
 }
 
-.header2 {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-weight: bolder;
-  font-size: x-small;
-  word-wrap: break-word;
-  height: auto;
-  direction: rtl;
-  color-scheme: initial;
-  color: rgb(240, 239, 235);
-  background-color: #c61035 !important;
+.row-zero {
+  background-color: #206a94 !important;
+  color: rgb(197, 197, 184);
+  font-family: "Vazirmatn","IRANSans",Tahoma,sans-serif !important;
+  font-size: large;
+  font-weight: bold;
+
+  text-align:right !important;
+  display: flex;
+  justify-content: right !important;
+  align-items: center !important;
 }
+
+/* row.calculate==0 or TITLE OF GUI TABLE*/
+.row-normal {
+  font-family: "Vazirmatn","IRANSans",Tahoma,sans-serif !important;
+  font-size: medium;
+  font-weight:500;
+  background-color: rgb(247, 248, 250);
+  align-items: center !important;
+  /*border: 1px solid brown;*/
+  /* 👈 مهم */
+}
+
+.wrap-cell {
+  white-space: normal !important;
+  word-break: break-word;
+  /* مهم */
+  line-height: 1.4;
+  display: block;
+
+}
+
+/* ===================================================*/
+.Titlem {
+  font-family:  "Vazirmatn", "IRANSans", sans-serif !important;
+  font-size: larger;
+  font-weight:bold;
+  text-align: center !important;
+  direction: rtl;
+  color: rgb(236, 241, 205) !important;
+}
+
 
 .header-bold-center {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -77,79 +103,103 @@
   gap: 8px;
 }
 
-.row-zero {
-  background-color: rgb(173, 222, 240);
-  color: rgb(1, 1, 0);
-  font-family: Segoe UI, 'Tahoma', Geneva, Verdana, sans-serif;
-  font-size: medium;
-  font-style: normal;
-  height: 60px;
+.actions-bar {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 1rem;
+  margin-top: 20px;
 }
 
-/* row.calculate==0 or TITLE OF GUI TABLE*/
-.row-normal {
-  font-family: 'Tahoma', Segoe UI, Geneva, Verdana, sans-serif;
-  font-weight: lighter;
-  background-color: rgb(227, 233, 240);
-  /*border: 1px solid brown;*/
-  /* 👈 مهم */
-}
-
-.wrap-cell {
-  white-space: normal !important;
-  word-break: break-word;
-  /* مهم */
-  line-height: 1.4;
-  display: block;
-
-}
+/*====================================== کلاس خاص==============*/
 
 .table-custom {
-  background-color: #0f4636;
-  /* آبی روشن ملایم */
-}
-
-.row {
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-}
-
-[class^="col-"],
-[class*=" col-"] {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-}
-
-.table-container {
-  direction: rtl;
-  padding: 20px;
-}
-
-.table {
   width: 100%;
   border-collapse: collapse;
-  font-family: tahoma;
+  table-layout: fixed;
+  background-color: #dceffc;
+  border: 2px solid #adcfe5;
 }
 
-.th,
-td {
-  border: 1px solid #ccc;
-  padding: 8px;
+.table-custom th,
+.table-custom td {
+  border: 1px solid #adcfe5;
+  padding: 12px 10px;
+  color: #050a0f;
+  font-size: 16px;
+  vertical-align: middle;
+}
+
+.table-custom thead th {
+  background-color: #dae4ee;
+  font-weight: 700;
+  font-size: large;
   text-align: center;
-
 }
 
-.th {
-  border: 1px solid black;
-  background-color: #f2f2f2;
-  font-weight: lighter;
+.col-id {
+  width: 6%;
+}
+
+.col-label {
+  width: 30%;
+}
+
+.col-value {
+  width: 64%;
+}
+
+.section-row td {
+  background-color: rgb(30, 93, 108);
+  font-size: larger;
+  font-weight: bold;
+  color: #dceffc;
+}
+
+.section-title {
+  background-color: rgb(30, 93, 108);
+  font-weight: 700;
+  text-align: center ;
+  color: #ebf2f7 !important;
+  padding: 14px 10px;
+}
+
+.cell-id {
+  text-align: center !important;
+}
+
+.cell-label {
+  text-align: right;
+  line-height: 1.7;
+}
+
+.cell-input {
   text-align: center;
 }
 
-.tbody tr:nth-child(even) {
-  background-color: #fafafa;
+.table-input {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #94a3b8;
+  border-radius: 6px;
+  padding: 10px 12px;
+  font-size: 15px;
+  font-family: inherit;
+  background-color: #ffffff;
+  outline: none;
 }
 
+.table-input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.table-custom tbody tr:nth-child(even):not(.section-row) {
+  background-color: rgba(255, 255, 255, 0.35);
+}
+
+.table-custom tbody tr:hover:not(.section-row) {
+  background-color: rgba(13, 110, 253, 0.12);
+}
 /* =========================
      استایل
   ========================== */
@@ -168,11 +218,32 @@ td {
 }*/
 
 .cream {
-  border: 1px solid black;
+  border: 1px solid rgb(247, 246, 246);
   background: #faf9d9ff;
+  font-family: "Vazirmatn","IRANSans",Tahoma,sans-serif !important;
+  font-weight: bold;
+  text-align: center;
+
 }
 
 .Title {
+  font-family: "Vazirmatn","IRANSans",Tahoma,sans-serif !important;
+  font-weight: bold;
+  text-align: center;
+
   border: 1px solid rgb(16, 1, 1);
   background: #39b08eff;
+}
+.title-kader {
+  background-color: #111827 !important;
+  width: 100%;
+
+}
+
+
+.Title1 {
+  font-family: "Vazirmatn","IRANSans",Tahoma,sans-serif !important;
+  font-weight:700;
+  text-align: center;
+  font-size: large ;  
 }

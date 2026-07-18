@@ -5,8 +5,6 @@ import * as XLSX from "xlsx";
 import "./Page.css";
 //=========== ایمپورت توابع دیگر صفحات ==================
 
-//==========================================================
-
 export default function Invoicepage() {
   const navigate = useNavigate();
 
@@ -164,13 +162,13 @@ export default function Invoicepage() {
       <h4 className="Titlem">خلاصه مالی حق الزحمه مشاوران</h4>
 
       <div className="mb-3 d-flex gap-2">
-        <button className="btn btn-success" onClick={exportExcel}>
+        <button className="btn btn-outline-light" onClick={exportExcel}>
           گزارش با Excel
         </button>
-        <button className="btn btn-danger" onClick={sendToBackend}>
+        <button className="btn btn-outline-light" onClick={sendToBackend}>
           گزارش با Word
         </button>
-        <button className="btn btn-primary" onClick={exportLocalStorage}>
+        <button className="btn btn-outline-light" onClick={exportLocalStorage}>
           ذخیره کردن پروژه
         </button>
         <button className="btn btn-secondary" onClick={goToHome}>
@@ -180,7 +178,7 @@ export default function Invoicepage() {
      
 
 
-      <table
+      <table className="table-custom"
         style={{
           width: "100%",
           borderCollapse: "collapse",

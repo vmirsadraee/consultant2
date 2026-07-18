@@ -1,15 +1,52 @@
-/* CSS دلخواه فقط محدود */
-body {
-  margin: 0;
-  padding: 0;
-  color: rgb(0, 10, 2);
-  background-color: rgb(202, 249, 234);
-  font-family: sans-serif;
+/* index.css */
+
+/* متغیرهای سراسری پروژه */
+:root {
+  --primary: #0066cc;
+  --secondary: #6c757d;
+  --text: #212529;
+  --background: #ea9191;
+  --font-main: "Vazirmatn", sans-serif;
+  --radius: 8px;
 }
 
+/* تنظیمات پایه کل صفحه */
+html,
+body,
+#root {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: var(--font-main);
+  color: var(--text);
+  background-color: var(--background);
+  margin: 0;
+  padding-bottom: 50px; /* برابر ارتفاع فوتر */
+  
+}
+
+/* استایل عمومی لینک‌ها */
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* استایل عمومی دکمه‌ها */
+button {
+  font-family: var(--font-main);
+  border-radius: var(--radius);
+}
+ 
+
 .wrapper {
-  background-color: rgb(10, 183, 117);
-  min-height: 100vh;
-  padding: 1rem 1.5rem 0rem;
-  /* فاصله از Navbar ثابت */
+  background-color: rgb(30, 93, 108) !important;
+  min-height: 85vh;
+  padding: 1rem 1.5rem 0rem; 
+  color:cornsilk;
 }

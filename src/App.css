@@ -1,23 +1,29 @@
+/*   
 html, body, #root {
   height: 100%;
   margin: 0;
 }
 
 /* ساختار کلی */
+/*
 .layout {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
+  */
 
 /* محتوا */
+/*
 .content {
   flex: 1;
   padding: 16px;
   background-color: #f5f6f7;
 }
+*/
 
 /* فوتر */
+/*
 .footer {
   background: #0f4636;
   color: #fff;
@@ -25,10 +31,14 @@ html, body, #root {
   padding: 8px;
   font-size: 0.9rem;
 }
+  */
 /* Home بدون اسکرول */
+/*
 .home-layout {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  overflow: hidden; /* مهم */
+  overflow: hidden; */ /* مهم */
+/*
 }
+*/

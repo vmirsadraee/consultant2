@@ -1,0 +1,22 @@
+.footer {
+    position: fixed;
+    bottom: 0;      /* چسبیدن به پایین */
+    left: 0;        /* از سمت چپ */
+    right: 0;       /* تا سمت راست */
+    width: 100%;    /* تمام عرض صفحه */
+
+    height: 50px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    color: #fff;
+    background-color: #111827;
+
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+
+    z-index: 1000; /* روی سایر عناصر قرار بگیرد */
+}
