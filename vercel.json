@@ -1,6 +1,6 @@
 {
   "rewrites": [
-    { "source": "/api/report/(.*)", "destination": "/api/office_back_api.py" },
+    { "source": "/api/(.*)", "destination": "/api/office_back_api.py" },
     { "source": "/api/(.*)", "destination": "/api/index.py" }
   ]
 }
