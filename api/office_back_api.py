@@ -8,7 +8,7 @@ from docx.oxml.ns import qn
 from docx.enum.text import WD_PARAGRAPH_ALIGNMENT
 from docx.shared import Cm , Pt 
 from docx.enum.table import WD_ROW_HEIGHT_RULE # برای کنترل دقیق ارتفاع
-from word_function import ( set_table_rtl , add_cell_text , add_persian_table , set_run_rtl
+from .word_function import ( set_table_rtl , add_cell_text , add_persian_table , set_run_rtl
      , set_paragraph_rtl , force_document_rtl , set_table_column_widths , set_cell_background
      , num_rial , float_rial , num_word , set_cell_vertical_alignment)
 
