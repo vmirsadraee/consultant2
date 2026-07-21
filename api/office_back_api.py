@@ -248,3 +248,8 @@ async def generate_report(payload: dict):
         media_type="application/vnd.openxmlformats-officedocument.wordprocessingml.document",
         headers={"Content-Disposition": 'attachment; filename="report.docx"'},
     )
+
+print("========== ROUTES ==========")
+for r in app.routes:
+    print(r.path, r.methods)
+print("============================")
