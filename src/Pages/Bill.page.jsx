@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Page.css";
 import {formatPriceInput } from "../utils/funct"
-
+import {DOWNLOAD_URL} from "./api";
 
 const STORAGE_PREFIX = "billpage_field_";
 
@@ -46,7 +46,10 @@ const Billpage = () => {
       {/* دکمه‌ها و بخش‌های دیگر */}
       <div className="mb-3 d-flex justify-content-between align-items-center">
         <div className="d-flex gap-2">
-          <button className="btn btn-outline-light">دانلود فایل</button>
+          <button className="btn btn-outline-light"
+                  onClick={() => window.open(DOWNLOAD_URL, "_blank")}>
+                    دانلود فایل
+          </button>
           <button className="btn btn-secondary" onClick={() => navigate("/Calculatepage")}>
             مرحله بعد
           </button>
